@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bánh Canh & Bún Cá Lóc | Hương Vị Đậm Đà - Thơm Ngon Mỗi Ngày</title>
+<meta name="description" content="Bánh Canh & Bún Cá Lóc - Quán ăn chuyên bánh canh, bún cá lóc, hải sản tươi ngon, đậm đà hương vị miền Tây. Đặt món online giao hàng nhanh chóng.">
+<meta name="keywords" content="bánh canh cá lóc, bún cá lóc, bánh canh, bún cá, quán ăn ngon, đặt món online, bún hải sản, bánh canh hải sản">
+<meta name="author" content="Bánh Canh & Bún Cá Lóc">
+<meta property="og:title" content="Bánh Canh & Bún Cá Lóc - Hương Vị Đậm Đà, Thơm Ngon Mỗi Ngày">
+<meta property="og:description" content="Khám phá thực đơn bánh canh, bún cá lóc đậm đà chuẩn vị, nguyên liệu tươi sạch mỗi ngày. Đặt món ngay!">
+<meta property="og:image" content="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=1200&q=80">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=64&q=80">
+
+<!-- Bootstrap 5 CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --color-orange:#FF6B35;
+  --color-red:#E63946;
+  --color-green:#2E8B57;
+  --color-white:#FFFFFF;
+  --color-dark:#241712;
+  --color-cream:#FFF8F3;
+  --gradient-main: linear-gradient(135deg, var(--color-orange) 0%, var(--color-red) 100%);
+  --shadow-soft: 0 10px 30px rgba(230,57,70,0.12);
+  --shadow-hover: 0 20px 40px rgba(255,107,53,0.25);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Be Vietnam Pro', sans-serif;
+  color:var(--color-dark);
+  background:var(--color-cream);
+  overflow-x:hidden;
+}
+h1,h2,h3,h4,.font-display{font-family:'Playfair Display', serif;}
+
+::selection{background:var(--color-orange); color:#fff;}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:#fff0e6;}
+::-webkit-scrollbar-thumb{background:var(--gradient-main); border-radius:10px;}
+
+/* ===== LOADER ===== */
+#loader{
+  position:fixed; inset:0; z-index:99999;
+  background:var(--color-white);
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:column; gap:18px;
+  transition:opacity .6s ease, visibility .6s ease;
+}
+#loader.hide{opacity:0; visibility:hidden;}
+.loader-bowl{
+  width:70px; height:70px; border-radius:50%;
+  border:6px solid #ffe0d1;
+  border-top-color:var(--color-orange);
+  border-right-color:var(--color-red);
+  animation:spin 1s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+.loader-text{font-family:'Playfair Display',serif; font-weight:700; color:var(--color-orange); letter-spacing:2px; font-size:1.1rem;}
+
+/* ===== UTILITIES ===== */
+.text-gradient{
+  background:var(--gradient-main);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.btn-brand{
+  background:var(--gradient-main);
+  border:none; color:#fff; font-weight:600;
+  padding:.7rem 1.8rem; border-radius:50px;
+  box-shadow:0 8px 20px rgba(255,107,53,.35);
+  transition:all .35s ease;
+  position:relative; overflow:hidden;
+}
+.btn-brand:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 14px 28px rgba(230,57,70,.4);
+  color:#fff;
+}
+.btn-outline-brand{
+  border:2px solid var(--color-orange); color:var(--color-orange);
+  font-weight:600; border-radius:50px; padding:.65rem 1.7rem;
+  background:transparent; transition:all .3s ease;
+}
+.btn-outline-brand:hover{
+  background:var(--gradient-main); color:#fff; border-color:transparent;
+  transform:translateY(-3px);
+}
+.section-pad{padding:90px 0;}
+.section-badge{
+  display:inline-block; padding:6px 18px; border-radius:50px;
+  background:rgba(255,107,53,.1); color:var(--color-orange);
+  font-weight:700; font-size:.85rem; letter-spacing:1.5px;
+  text-transform:uppercase; margin-bottom:14px;
+}
+.section-title{font-weight:800; font-size:2.6rem; margin-bottom:14px;}
+.section-sub{color:#7a6a63; max-width:600px; margin:0 auto;}
+
+/* Fade in animation */
+.fade-up{opacity:0; transform:translateY(40px); transition:all .8s cubic-bezier(.22,1,.36,1);}
+.fade-up.show{opacity:1; transform:translateY(0);}
+.fade-up.delay-1{transition-delay:.1s;}
+.fade-up.delay-2{transition-delay:.2s;}
+.fade-up.delay-3{transition-delay:.3s;}
+.fade-up.delay-4{transition-delay:.4s;}
+
+/* ===== HEADER ===== */
+#mainHeader{
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  background:rgba(255,255,255,.0);
+  transition:all .4s ease;
+  padding:16px 0;
+}
+#mainHeader.scrolled{
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(10px);
+  box-shadow:0 4px 25px rgba(0,0,0,.08);
+  padding:8px 0;
+}
+.navbar-brand-custom{display:flex; align-items:center; gap:10px;}
+.logo-icon{
+  width:48px; height:48px; border-radius:14px;
+  background:var(--gradient-main);
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:1.4rem; box-shadow:0 6px 16px rgba(255,107,53,.4);
+  flex-shrink:0;
+}
+.brand-text{line-height:1.05;}
+.brand-text .t1{font-family:'Playfair Display',serif; font-weight:800; font-size:1.25rem; color:var(--color-dark);}
+.brand-text .t2{font-size:.7rem; color:var(--color-green); font-weight:600; letter-spacing:.5px;}
+#mainHeader .nav-link{
+  font-weight:600; color:var(--color-dark)!important; margin:0 10px;
+  position:relative; padding:8px 4px!important;
+}
+#mainHeader .nav-link::after{
+  content:''; position:absolute; left:0; bottom:0; width:0; height:2px;
+  background:var(--gradient-main); transition:width .3s ease;
+}
+#mainHeader .nav-link:hover::after, #mainHeader .nav-link.active::after{width:100%;}
+#mainHeader .nav-link:hover, #mainHeader .nav-link.active{color:var(--color-orange)!important;}
+
+.header-action-btn{
+  width:44px; height:44px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:#fff5ef; color:var(--color-orange);
+  position:relative; border:none; transition:all .3s ease;
+}
+.header-action-btn:hover{background:var(--gradient-main); color:#fff; transform:translateY(-2px);}
+.cart-badge{
+  position:absolute; top:-6px; right:-6px;
+  background:var(--color-red); color:#fff;
+  font-size:.65rem; font-weight:700;
+  width:20px; height:20px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  border:2px solid #fff;
+}
+.hotline-box{display:flex; align-items:center; gap:10px;}
+.hotline-box .icon{
+  width:40px; height:40px; border-radius:50%; background:rgba(46,139,87,.12);
+  color:var(--color-green); display:flex; align-items:center; justify-content:center;
+}
+.hotline-box .num{font-weight:700; color:var(--color-dark); font-size:.95rem;}
+.hotline-box .lbl{font-size:.7rem; color:#9a8a82;}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative; min-height:100vh; display:flex; align-items:center;
+  overflow:hidden; padding-top:90px;
+  background:linear-gradient(160deg,#fff8f3 0%, #ffe9da 100%);
+}
+.hero-bg-parallax{
+  position:absolute; inset:0; z-index:0;
+  background-image:url('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=1600&q=80');
+  background-size:cover; background-position:center;
+  opacity:.13; will-change:transform;
+}
+.hero-blob{
+  position:absolute; border-radius:50%; filter:blur(60px); opacity:.35; z-index:0;
+}
+.blob1{width:380px; height:380px; background:var(--color-orange); top:-80px; right:-80px; animation:float1 9s ease-in-out infinite;}
+.blob2{width:300px; height:300px; background:var(--color-green); bottom:-60px; left:-60px; animation:float2 11s ease-in-out infinite;}
+@keyframes float1{0%,100%{transform:translateY(0px) translateX(0px);}50%{transform:translateY(30px) translateX(-20px);}}
+@keyframes float2{0%,100%{transform:translateY(0px);}50%{transform:translateY(-30px);}}
+
+.hero-content{position:relative; z-index:2;}
+.hero-tag{
+  display:inline-flex; align-items:center; gap:8px;
+  background:#fff; padding:8px 18px; border-radius:50px;
+  box-shadow:var(--shadow-soft); font-weight:600; font-size:.85rem;
+  color:var(--color-red); margin-bottom:24px;
+}
+.hero-tag i{color:#FFC107;}
+.hero h1{
+  font-size:3.4rem; font-weight:800; line-height:1.15; margin-bottom:20px; color:var(--color-dark);
+}
+.hero h1 span{color:var(--color-orange); display:block;}
+.hero p.lead-text{font-size:1.1rem; color:#6e5d55; max-width:520px; margin-bottom:32px;}
+.hero-stats-mini{display:flex; gap:30px; margin-top:40px; flex-wrap:wrap;}
+.hero-stats-mini .item h3{font-weight:800; color:var(--color-orange); margin-bottom:0; font-size:1.7rem;}
+.hero-stats-mini .item p{font-size:.8rem; color:#8a7a72; margin:0;}
+
+.hero-img-wrap{
+  position:relative; z-index:2;
+}
+.hero-img-main{
+  width:100%; border-radius:30px; box-shadow:0 30px 60px rgba(230,57,70,.25);
+  animation:float-img 5s ease-in-out infinite;
+  border:8px solid #fff;
+}
+@keyframes float-img{0%,100%{transform:translateY(0px) rotate(0deg);}50%{transform:translateY(-18px) rotate(1deg);}}
+.hero-float-card{
+  position:absolute; background:#fff; border-radius:18px; padding:14px 18px;
+  box-shadow:0 15px 35px rgba(0,0,0,.12); display:flex; align-items:center; gap:12px;
+  animation:float-img 4s ease-in-out infinite;
+}
+.hero-float-card.c1{top:8%; left:-10%; animation-delay:.5s;}
+.hero-float-card.c2{bottom:10%; right:-8%; animation-delay:1s;}
+.hero-float-card .ic{
+  width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem;
+}
+.hero-float-card.c1 .ic{background:rgba(46,139,87,.15); color:var(--color-green);}
+.hero-float-card.c2 .ic{background:rgba(255,193,7,.18); color:#f1a208;}
+.hero-float-card small{display:block; color:#9a8a82; font-size:.7rem;}
+.hero-float-card strong{font-size:.9rem;}
+
+.scroll-down-ind{
+  position:absolute; bottom:18px; left:50%; transform:translateX(-50%);
+  z-index:3; color:var(--color-orange); text-align:center; font-size:.75rem;
+}
+.scroll-down-ind i{display:block; font-size:1.3rem; animation:bounce 1.8s infinite;}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(10px);}}
+
+/* ===== SEARCH BAR ===== */
+.search-wrap{
+  background:#fff; border-radius:50px; box-shadow:var(--shadow-soft);
+  padding:6px 6px 6px 24px; display:flex; align-items:center; gap:10px;
+  max-width:560px; margin:0 auto; border:2px solid transparent;
+  transition:border-color .3s ease;
+}
+.search-wrap:focus-within{border-color:var(--color-orange);}
+.search-wrap input{border:none; outline:none; flex:1; font-size:.95rem; background:transparent;}
+.search-wrap button{
+  background:var(--gradient-main); border:none; color:#fff; border-radius:50px;
+  padding:10px 24px; font-weight:600; white-space:nowrap;
+}
+
+/* ===== CATEGORY FILTER ===== */
+.filter-tabs{display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom:45px;}
+.filter-tab{
+  padding:10px 24px; border-radius:50px; background:#fff; border:2px solid #ffe3d4;
+  font-weight:600; color:var(--color-dark); cursor:pointer; transition:all .3s ease;
+  font-size:.9rem;
+}
+.filter-tab:hover{border-color:var(--color-orange); color:var(--color-orange);}
+.filter-tab.active{
+  background:var(--gradient-main); color:#fff; border-color:transparent;
+  box-shadow:0 8px 20px rgba(255,107,53,.35);
+}
+
+/* ===== FOOD CARD ===== */
+.food-card{
+  background:#fff; border-radius:22px; overflow:hidden; height:100%;
+  box-shadow:0 8px 24px rgba(0,0,0,.06); transition:all .4s cubic-bezier(.22,1,.36,1);
+  position:relative; border:1px solid #fff0e8;
+}
+.food-card:hover{
+  transform:translateY(-12px); box-shadow:var(--shadow-hover);
+}
+.food-card .img-wrap{position:relative; overflow:hidden; height:210px;}
+.food-card .img-wrap img{
+  width:100%; height:100%; object-fit:cover; transition:transform .6s ease;
+}
+.food-card:hover .img-wrap img{transform:scale(1.12);}
+.food-badge{
+  position:absolute; top:14px; left:14px; background:var(--color-green); color:#fff;
+  font-size:.7rem; font-weight:700; padding:5px 14px; border-radius:50px; z-index:2;
+}
+.food-badge.hot{background:var(--color-red);}
+.food-fav{
+  position:absolute; top:14px; right:14px; width:36px; height:36px; border-radius:50%;
+  background:rgba(255,255,255,.9); display:flex; align-items:center; justify-content:center;
+  color:#d3d3d3; transition:all .3s ease; z-index:2; border:none;
+}
+.food-fav.active, .food-fav:hover{color:var(--color-red);}
+.food-card .body{padding:20px;}
+.food-card .cat-label{font-size:.72rem; color:var(--color-green); font-weight:700; text-transform:uppercase; letter-spacing:.5px;}
+.food-card h5{font-weight:700; margin:6px 0 8px; font-size:1.08rem; min-height:auto;}
+.food-card .desc{font-size:.85rem; color:#8a7a72; margin-bottom:12px; min-height:40px;}
+.food-card .stars{color:#FFC107; font-size:.8rem; margin-bottom:12px;}
+.food-card .stars span{color:#9a8a82; margin-left:4px; font-size:.78rem;}
+.food-card .price-row{display:flex; align-items:center; justify-content:space-between;}
+.food-card .price{font-weight:800; color:var(--color-orange); font-size:1.25rem;}
+.food-card .add-btn{
+  width:42px; height:42px; border-radius:50%; background:var(--gradient-main);
+  border:none; color:#fff; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 6px 16px rgba(255,107,53,.4); transition:all .3s ease; flex-shrink:0;
+}
+.food-card .add-btn:hover{transform:rotate(90deg) scale(1.1);}
+
+/* ===== DRINK CARD ===== */
+.drink-card{
+  background:#fff; border-radius:20px; padding:18px; text-align:center;
+  box-shadow:0 8px 22px rgba(0,0,0,.05); transition:all .35s ease; height:100%;
+  border:1px solid #fff0e8;
+}
+.drink-card:hover{transform:translateY(-10px); box-shadow:var(--shadow-hover);}
+.drink-card .img-wrap{
+  width:120px; height:120px; margin:0 auto 14px; border-radius:50%; overflow:hidden;
+  border:4px solid #fff5ef; box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+.drink-card .img-wrap img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
+.drink-card:hover .img-wrap img{transform:scale(1.15);}
+.drink-card h6{font-weight:700; margin-bottom:6px;}
+.drink-card .price{color:var(--color-orange); font-weight:800; margin-bottom:12px;}
+
+/* ===== COMBO ===== */
+.combo-card{
+  border-radius:26px; padding:36px; color:#fff; position:relative; overflow:hidden;
+  height:100%; transition:all .4s ease; box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+.combo-card:hover{transform:translateY(-8px) scale(1.01);}
+.combo-card.c1{background:linear-gradient(135deg,#FF6B35,#E63946);}
+.combo-card.c2{background:linear-gradient(135deg,#2E8B57,#1d5c3a);}
+.combo-card .ribbon{
+  position:absolute; top:18px; right:-34px; background:#FFC107; color:#241712;
+  padding:6px 40px; font-weight:800; font-size:.75rem; transform:rotate(45deg);
+  box-shadow:0 4px 10px rgba(0,0,0,.2);
+}
+.combo-card .combo-icon{font-size:2.2rem; margin-bottom:14px; opacity:.9;}
+.combo-card h3{font-weight:800; margin-bottom:10px;}
+.combo-card ul{list-style:none; padding:0; margin:18px 0 24px;}
+.combo-card ul li{padding:6px 0; font-size:.95rem; opacity:.95;}
+.combo-card ul li i{margin-right:10px; color:#FFC107;}
+.combo-price-row{display:flex; align-items:baseline; gap:12px; margin-bottom:20px;}
+.combo-price-row .old{text-decoration:line-through; opacity:.7; font-size:1rem;}
+.combo-price-row .new{font-size:2.1rem; font-weight:800;}
+.combo-card .btn-light-combo{
+  background:#fff; border:none; font-weight:700; padding:10px 28px; border-radius:50px;
+  transition:all .3s ease;
+}
+.combo-card.c1 .btn-light-combo{color:var(--color-orange);}
+.combo-card.c2 .btn-light-combo{color:var(--color-green);}
+.combo-card .btn-light-combo:hover{transform:translateY(-3px); box-shadow:0 10px 20px rgba(0,0,0,.2);}
+
+/* ===== ABOUT ===== */
+.about-img-wrap{position:relative;}
+.about-img-wrap img.main{
+  width:100%; border-radius:24px; box-shadow:0 20px 50px rgba(0,0,0,.15);
+}
+.about-img-wrap img.small{
+  position:absolute; width:55%; bottom:-12%; left:-10%; border-radius:20px;
+  border:8px solid #fff; box-shadow:0 15px 35px rgba(0,0,0,.18);
+}
+.about-experience-badge{
+  position:absolute; top:-25px; right:10px; background:var(--gradient-main); color:#fff;
+  border-radius:18px; padding:18px 22px; text-align:center; box-shadow:0 15px 30px rgba(255,107,53,.4);
+}
+.about-experience-badge h2{font-weight:800; margin:0; font-size:2rem;}
+.about-experience-badge small{font-size:.7rem; display:block;}
+.about-values{display:flex; gap:16px; margin-top:30px;}
+.value-item{display:flex; gap:14px; align-items:flex-start;}
+.value-item .ic{
+  width:50px; height:50px; border-radius:14px; background:rgba(46,139,87,.12);
+  color:var(--color-green); display:flex; align-items:center; justify-content:center;
+  font-size:1.2rem; flex-shrink:0;
+}
+.value-item h6{font-weight:700; margin-bottom:4px;}
+.value-item p{font-size:.85rem; color:#8a7a72; margin:0;}
+
+/* ===== STATS ===== */
+.stats-section{
+  background:linear-gradient(135deg, #2E8B57, #1f6b42);
+  border-radius:30px; padding:60px 30px; position:relative; overflow:hidden;
+}
+.stats-section::before{
+  content:''; position:absolute; inset:0;
+  background:url('https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=1200&q=60') center/cover;
+  opacity:.08;
+}
+.stat-item{text-align:center; color:#fff; position:relative; z-index:1;}
+.stat-item i{font-size:2.2rem; margin-bottom:14px; color:#FFC107;}
+.stat-item h2{font-weight:800; font-size:2.8rem; margin-bottom:6px;}
+.stat-item p{opacity:.85; margin:0; font-weight:500;}
+
+/* ===== TESTIMONIAL ===== */
+.testi-card{
+  background:#fff; border-radius:24px; padding:36px; text-align:center;
+  box-shadow:0 15px 40px rgba(0,0,0,.06); max-width:680px; margin:0 auto;
+}
+.testi-card .quote-ic{font-size:2rem; color:#ffd9c4; margin-bottom:14px;}
+.testi-card p.text{font-size:1.05rem; color:#5a4d47; font-style:italic; margin-bottom:24px; min-height:90px;}
+.testi-card .stars{color:#FFC107; margin-bottom:16px;}
+.testi-avatar{
+  width:70px; height:70px; border-radius:50%; margin:0 auto 12px; overflow:hidden;
+  border:3px solid #ffe3d4;
+}
+.testi-avatar img{width:100%; height:100%; object-fit:cover;}
+.testi-card h6{font-weight:700; margin-bottom:2px;}
+.testi-card small{color:#9a8a82;}
+.testi-dots{display:flex; justify-content:center; gap:8px; margin-top:30px;}
+.testi-dots .dot{
+  width:10px; height:10px; border-radius:50%; background:#ffd9c4; cursor:pointer; transition:all .3s ease;
+}
+.testi-dots .dot.active{background:var(--color-orange); width:30px; border-radius:6px;}
+
+/* ===== CONTACT ===== */
+.contact-section{
+  background:#fff; border-radius:30px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,.07);
+}
+.contact-info-side{
+  background:var(--gradient-main); color:#fff; padding:50px 40px; height:100%;
+  position:relative; overflow:hidden;
+}
+.contact-info-side::before{
+  content:''; position:absolute; width:250px; height:250px; border-radius:50%;
+  background:rgba(255,255,255,.08); top:-100px; right:-100px;
+}
+.contact-info-item{display:flex; gap:16px; margin-bottom:24px; align-items:flex-start; position:relative; z-index:1;}
+.contact-info-item .ic{
+  width:46px; height:46px; border-radius:50%; background:rgba(255,255,255,.18);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.contact-info-item h6{font-weight:700; margin-bottom:4px;}
+.contact-info-item p{margin:0; opacity:.9; font-size:.9rem;}
+.social-row{display:flex; gap:10px; margin-top:30px; position:relative; z-index:1;}
+.social-row a{
+  width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.18);
+  display:flex; align-items:center; justify-content:center; color:#fff; transition:all .3s ease;
+}
+.social-row a:hover{background:#fff; color:var(--color-orange); transform:translateY(-3px);}
+
+.form-control-custom{
+  border:2px solid #f1e6df; border-radius:14px; padding:13px 18px; font-size:.95rem;
+  transition:all .3s ease; background:#fffaf7;
+}
+.form-control-custom:focus{border-color:var(--color-orange); box-shadow:0 0 0 4px rgba(255,107,53,.1); background:#fff;}
+.contact-form-side{padding:50px 40px;}
+
+/* ===== FOOTER ===== */
+footer{background:#1a1310; color:#cfc3bd; padding-top:70px;}
+footer h5{color:#fff; font-weight:700; margin-bottom:20px;}
+footer .footer-logo{display:flex; align-items:center; gap:10px; margin-bottom:16px;}
+footer p.desc{font-size:.9rem; color:#9a8a82; line-height:1.7;}
+footer ul{list-style:none; padding:0;}
+footer ul li{margin-bottom:12px;}
+footer ul li a{color:#9a8a82; text-decoration:none; transition:all .25s ease; font-size:.92rem;}
+footer ul li a:hover{color:var(--color-orange); padding-left:5px;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08); margin-top:40px; padding:22px 0; font-size:.85rem; color:#7a6e68;}
+.footer-social a{
+  width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,.06);
+  display:flex; align-items:center; justify-content:center; color:#fff; margin-right:8px; transition:all .3s ease;
+}
+.footer-social a:hover{background:var(--gradient-main); transform:translateY(-3px);}
+.footer-newsletter input{
+  border-radius:50px 0 0 50px; border:none; padding:12px 20px; outline:none; font-size:.9rem;
+}
+.footer-newsletter button{
+  border-radius:0 50px 50px 0; border:none; background:var(--gradient-main); color:#fff;
+  padding:12px 20px;
+}
+
+/* ===== BACK TO TOP ===== */
+#backToTop{
+  position:fixed; bottom:90px; right:24px; width:48px; height:48px; border-radius:50%;
+  background:var(--gradient-main); color:#fff; border:none; z-index:998;
+  box-shadow:0 10px 25px rgba(255,107,53,.4); opacity:0; visibility:hidden;
+  transform:translateY(20px); transition:all .35s ease;
+}
+#backToTop.show{opacity:1; visibility:visible; transform:translateY(0);}
+#backToTop:hover{transform:translateY(-5px);}
+
+/* ===== FLOATING ORDER BTN MOBILE ===== */
+#floatOrderBtn{
+  position:fixed; bottom:24px; right:24px; z-index:998;
+  width:58px; height:58px; border-radius:50%; background:var(--color-green); color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:1.4rem;
+  box-shadow:0 12px 28px rgba(46,139,87,.45); border:none;
+  animation:pulse-btn 2.2s infinite;
+}
+@keyframes pulse-btn{0%{box-shadow:0 0 0 0 rgba(46,139,87,.5);}70%{box-shadow:0 0 0 16px rgba(46,139,87,0);}100%{box-shadow:0 0 0 0 rgba(46,139,87,0);}}
+
+/* ===== CART OFFCANVAS ===== */
+.cart-item{display:flex; gap:14px; align-items:center; padding:14px 0; border-bottom:1px solid #f5ece6;}
+.cart-item img{width:64px; height:64px; border-radius:12px; object-fit:cover; flex-shrink:0;}
+.cart-item .info{flex:1;}
+.cart-item h6{font-weight:700; margin-bottom:4px; font-size:.92rem;}
+.cart-item .unit-price{font-size:.78rem; color:#9a8a82;}
+.qty-control{display:flex; align-items:center; gap:8px; margin-top:6px;}
+.qty-control button{
+  width:26px; height:26px; border-radius:50%; border:1px solid #f1e0d4; background:#fff7f2;
+  display:flex; align-items:center; justify-content:center; font-size:.75rem; color:var(--color-orange);
+}
+.qty-control span{font-weight:700; min-width:20px; text-align:center; font-size:.9rem;}
+.cart-item .remove-btn{color:#cbb; background:none; border:none; font-size:.95rem; transition:color .2s;}
+.cart-item .remove-btn:hover{color:var(--color-red);}
+.cart-item .line-total{font-weight:700; color:var(--color-orange); font-size:.9rem; white-space:nowrap;}
+.cart-empty{text-align:center; padding:60px 20px; color:#b3a39a;}
+.cart-empty i{font-size:3rem; margin-bottom:14px; opacity:.5;}
+.offcanvas-cart-footer{border-top:2px dashed #f1e0d4; padding-top:18px;}
+
+.toast-cart{
+  position:fixed; top:100px; right:24px; z-index:9999; background:#fff; border-radius:14px;
+  box-shadow:0 15px 35px rgba(0,0,0,.15); padding:14px 20px; display:flex; align-items:center; gap:12px;
+  transform:translateX(120%); transition:transform .4s cubic-bezier(.22,1,.36,1);
+}
+.toast-cart.show{transform:translateX(0);}
+.toast-cart .ic{
+  width:38px; height:38px; border-radius:50%; background:rgba(46,139,87,.15); color:var(--color-green);
+  display:flex; align-items:center; justify-content:center;
+}
+
+@media (max-width:991px){
+  .hero h1{font-size:2.4rem;}
+  .hero-float-card{display:none;}
+  .section-title{font-size:2rem;}
+  .about-img-wrap img.small{display:none;}
+  .contact-info-side{padding:40px 28px;}
+  .contact-form-side{padding:40px 28px;}
+}
+@media (max-width:767px){
+  .hero{text-align:center; padding-top:120px;}
+  .hero p.lead-text{margin-left:auto; margin-right:auto;}
+  .hero-stats-mini{justify-content:center;}
+  .hero-img-wrap{margin-top:40px;}
+  .section-pad{padding:60px 0;}
+  .stats-section{padding:40px 18px;}
+  .stat-item h2{font-size:2.1rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-bowl"></div>
+  <div class="loader-text">BÁNH CANH & BÚN CÁ LÓC</div>
+</div>
+
+<!-- TOAST CART NOTIFY -->
+<div class="toast-cart" id="cartToast">
+  <div class="ic"><i class="fa-solid fa-check"></i></div>
+  <div><strong id="toastMsg">Đã thêm vào giỏ hàng!</strong></div>
+</div>
+
+<!-- HEADER -->
+<header id="mainHeader">
+  <nav class="navbar navbar-expand-lg container">
+    <a class="navbar-brand-custom" href="#home">
+      <div class="logo-icon"><i class="fa-solid fa-bowl-rice"></i></div>
+      <div class="brand-text">
+        <div class="t1">Bánh Canh & Bún Cá Lóc</div>
+        <div class="t2">Hương vị đậm đà mỗi ngày</div>
+      </div>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <i class="fa-solid fa-bars fs-3" style="color:var(--color-orange)"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 mt-3 mt-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="#home">Trang chủ</a></li>
+        <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="#combo">Combo</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">Giới thiệu</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testimonial">Đánh giá</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Liên hệ</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0 flex-wrap">
+        <div class="hotline-box d-none d-md-flex">
+          <div class="icon"><i class="fa-solid fa-phone-volume"></i></div>
+          <div>
+            <div class="num">1900 6868</div>
+            <div class="lbl">Hotline đặt món</div>
+          </div>
+        </div>
+        <button class="header-action-btn" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-label="Giỏ hàng">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+        <a href="#menu" class="btn-brand"><i class="fa-solid fa-utensils me-2"></i>Đặt Món</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- CART OFFCANVAS -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+  <div class="offcanvas-header border-bottom">
+    <h5 class="offcanvas-title fw-bold"><i class="fa-solid fa-basket-shopping me-2" style="color:var(--color-orange)"></i>Giỏ hàng của bạn</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <div id="cartItemsWrap" class="flex-grow-1" style="overflow-y:auto;">
+      <!-- cart items injected by JS -->
+    </div>
+    <div class="offcanvas-cart-footer" id="cartFooter" style="display:none;">
+      <div class="d-flex justify-content-between mb-2">
+        <span class="text-muted">Tạm tính</span>
+        <strong id="cartSubtotal">0đ</strong>
+      </div>
+      <div class="d-flex justify-content-between mb-3">
+        <span class="fw-bold fs-5">Tổng cộng</span>
+        <strong class="fw-bold fs-5" style="color:var(--color-orange)" id="cartTotal">0đ</strong>
+      </div>
+      <button class="btn-brand w-100 mb-2" onclick="checkout()"><i class="fa-solid fa-credit-card me-2"></i>Thanh toán ngay</button>
+      <button class="btn btn-outline-danger w-100 rounded-pill" onclick="clearCart()">Xóa tất cả</button>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg-parallax" id="parallaxBg"></div>
+  <div class="hero-blob blob1"></div>
+  <div class="hero-blob blob2"></div>
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 hero-content">
+        <div class="hero-tag fade-up show"><i class="fa-solid fa-star"></i> Hơn 10.000+ khách hàng tin chọn</div>
+        <h1 class="fade-up show delay-1">Hương vị đậm đà<span>Thơm ngon mỗi ngày</span></h1>
+        <p class="lead-text fade-up show delay-2">Bánh canh & bún cá lóc chuẩn vị miền Tây, nước lèo ngọt thanh ninh từ xương cá tươi mỗi ngày, ăn kèm chả cá dai ngon, hải sản tươi sống.</p>
+        <div class="d-flex gap-3 flex-wrap fade-up show delay-3">
+          <a href="#menu" class="btn-brand"><i class="fa-solid fa-bowl-food me-2"></i>Đặt Ngay</a>
+          <a href="#about" class="btn-outline-brand"><i class="fa-solid fa-circle-play me-2"></i>Tìm hiểu thêm</a>
+        </div>
+        <div class="hero-stats-mini fade-up show delay-4">
+          <div class="item">
+            <h3>10000+</h3><p>Khách hàng</p>
+          </div>
+          <div class="item">
+            <h3>5000+</h3><p>Đơn hàng</p>
+          </div>
+          <div class="item">
+            <h3>4.9 <i class="fa-solid fa-star" style="font-size:.9rem;color:#FFC107"></i></h3><p>Đánh giá</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="hero-img-wrap fade-up show delay-2">
+          <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=900&q=80" class="hero-img-main" alt="Bánh canh cá lóc nóng hổi">
+          <div class="hero-float-card c1">
+            <div class="ic"><i class="fa-solid fa-leaf"></i></div>
+            <div><strong>Tươi sạch</strong><small>Nguyên liệu mỗi ngày</small></div>
+          </div>
+          <div class="hero-float-card c2">
+            <div class="ic"><i class="fa-solid fa-clock"></i></div>
+            <div><strong>15 phút</strong><small>Giao hàng nhanh</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-down-ind"><i class="fa-solid fa-chevron-down"></i>Cuộn xuống</div>
+</section>
+
+<!-- MENU -->
+<section class="section-pad" id="menu">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-badge">Thực đơn</span>
+      <h2 class="section-title">Món Ngon Mỗi Ngày</h2>
+      <p class="section-sub mx-auto">Đa dạng các món bánh canh, bún cá lóc đậm đà hương vị, được chế biến từ nguyên liệu tươi ngon, chọn lọc kỹ càng.</p>
+    </div>
+
+    <div class="row justify-content-center my-4 fade-up">
+      <div class="col-lg-6 col-md-8">
+        <div class="search-wrap">
+          <i class="fa-solid fa-magnifying-glass text-muted"></i>
+          <input type="text" id="searchInput" placeholder="Tìm món ăn theo tên... VD: bánh canh hải sản">
+          <button onclick="renderFood()"><i class="fa-solid fa-magnifying-glass d-md-none"></i><span class="d-none d-md-inline">Tìm kiếm</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-tabs fade-up">
+      <div class="filter-tab active" data-filter="all">Tất cả</div>
+      <div class="filter-tab" data-filter="banhcanh">Bánh Canh</div>
+      <div class="filter-tab" data-filter="bun">Bún</div>
+      <div class="filter-tab" data-filter="haisan">Hải Sản</div>
+      <div class="filter-tab" data-filter="dacbiet">Đặc Biệt</div>
+    </div>
+
+    <div class="row g-4" id="foodGrid"></div>
+  </div>
+</section>
+
+<!-- DRINKS -->
+<section class="section-pad" style="background:#fff6f0;" id="drinks">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-badge">Giải khát</span>
+      <h2 class="section-title">Thức Uống Kèm Theo</h2>
+      <p class="section-sub mx-auto">Thưởng thức bữa ăn ngon trọn vẹn hơn cùng các loại thức uống giải khát đa dạng.</p>
+    </div>
+    <div class="row g-4 mt-4" id="drinkGrid"></div>
+  </div>
+</section>
+
+<!-- COMBO -->
+<section class="section-pad" id="combo">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-badge">Ưu đãi hot</span>
+      <h2 class="section-title">Combo Khuyến Mãi</h2>
+      <p class="section-sub mx-auto">Tiết kiệm hơn khi chọn combo dành cho gia đình và nhóm bạn — ngon hơn, lợi hơn!</p>
+    </div>
+    <div class="row g-4 mt-4">
+      <div class="col-lg-6 fade-up">
+        <div class="combo-card c1">
+          <div class="ribbon">SALE 15%</div>
+          <div class="combo-icon"><i class="fa-solid fa-users"></i></div>
+          <h3>Combo Cặp Đôi</h3>
+          <p class="opacity-90 mb-0">Phù hợp cho 2 người, no nê đủ vị</p>
+          <ul>
+            <li><i class="fa-solid fa-circle-check"></i>2 tô bánh canh/bún (chọn loại bất kỳ)</li>
+            <li><i class="fa-solid fa-circle-check"></i>2 nước uống bất kỳ</li>
+            <li><i class="fa-solid fa-circle-check"></i>Tặng kèm rau sống & chanh ớt</li>
+          </ul>
+          <div class="combo-price-row">
+            <span class="old">130.000đ</span>
+            <span class="new">110.000đ</span>
+          </div>
+          <button class="btn-light-combo" onclick="addCombo('Combo Cặp Đôi (2 tô + 2 nước)',110000)"><i class="fa-solid fa-cart-plus me-2"></i>Chọn Combo</button>
+        </div>
+      </div>
+      <div class="col-lg-6 fade-up delay-2">
+        <div class="combo-card c2">
+          <div class="ribbon">SALE 20%</div>
+          <div class="combo-icon"><i class="fa-solid fa-people-group"></i></div>
+          <h3>Combo Gia Đình</h3>
+          <p class="opacity-90 mb-0">Phù hợp cho 4 người, tiệc nhỏ tại nhà</p>
+          <ul>
+            <li><i class="fa-solid fa-circle-check"></i>4 tô bánh canh/bún (chọn loại bất kỳ)</li>
+            <li><i class="fa-solid fa-circle-check"></i>4 nước uống bất kỳ</li>
+            <li><i class="fa-solid fa-circle-check"></i>Miễn phí giao hàng</li>
+          </ul>
+          <div class="combo-price-row">
+            <span class="old">260.000đ</span>
+            <span class="new">208.000đ</span>
+          </div>
+          <button class="btn-light-combo" onclick="addCombo('Combo Gia Đình (4 tô + 4 nước)',208000)"><i class="fa-solid fa-cart-plus me-2"></i>Chọn Combo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section-pad" style="background:#fff6f0;" id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 fade-up">
+        <div class="about-img-wrap">
+          <div class="about-experience-badge">
+            <h2>10+</h2>
+            <small>Năm kinh nghiệm</small>
+          </div>
+          <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?w=800&q=80" class="main" alt="Quán bánh canh cá lóc">
+          <img src="https://images.unsplash.com/photo-1626200419199-391ae4be7a41?w=500&q=80" class="small" alt="Đầu bếp chuẩn bị món ăn">
+        </div>
+      </div>
+      <div class="col-lg-6 fade-up delay-2">
+        <span class="section-badge">Câu chuyện thương hiệu</span>
+        <h2 class="section-title">Từ Bếp Ăn Gia Đình Đến Thương Hiệu Được Yêu Thích</h2>
+        <p class="text-secondary mb-4">Khởi nguồn từ gánh hàng nhỏ ven sông miền Tây hơn 10 năm trước, "Bánh Canh & Bún Cá Lóc" mang trong mình công thức nước lèo gia truyền, ninh từ xương cá lóc đồng tươi cùng bí quyết nêm nếm riêng biệt. Chúng tôi tin rằng một tô bánh canh ngon phải bắt đầu từ sự chân thành và nguyên liệu sạch mỗi ngày.</p>
+        <div class="about-values">
+          <div class="value-item">
+            <div class="ic"><i class="fa-solid fa-seedling"></i></div>
+            <div>
+              <h6>Tươi Sạch</h6>
+              <p>Nguyên liệu chọn lọc mỗi sáng</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="ic"><i class="fa-solid fa-heart"></i></div>
+            <div>
+              <h6>Tận Tâm</h6>
+              <p>Phục vụ bằng cả tấm lòng</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-values">
+          <div class="value-item">
+            <div class="ic"><i class="fa-solid fa-medal"></i></div>
+            <div>
+              <h6>Chất Lượng</h6>
+              <p>Giữ vững hương vị truyền thống</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="ic"><i class="fa-solid fa-bolt"></i></div>
+            <div>
+              <h6>Nhanh Chóng</h6>
+              <p>Giao hàng trong 15-20 phút</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section-pad">
+  <div class="container fade-up">
+    <div class="stats-section">
+      <div class="row g-4">
+        <div class="col-6 col-md-3 stat-item">
+          <i class="fa-solid fa-users"></i>
+          <h2><span class="counter" data-target="10000">0</span>+</h2>
+          <p>Khách hàng tin chọn</p>
+        </div>
+        <div class="col-6 col-md-3 stat-item">
+          <i class="fa-solid fa-bowl-rice"></i>
+          <h2><span class="counter" data-target="5000">0</span>+</h2>
+          <p>Đơn hàng đã giao</p>
+        </div>
+        <div class="col-6 col-md-3 stat-item">
+          <i class="fa-solid fa-star"></i>
+          <h2><span class="counter" data-target="4.9" data-decimal="true">0</span></h2>
+          <p>Sao đánh giá</p>
+        </div>
+        <div class="col-6 col-md-3 stat-item">
+          <i class="fa-solid fa-store"></i>
+          <h2><span class="counter" data-target="10">0</span>+</h2>
+          <p>Năm kinh nghiệm</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="section-pad" style="background:#fff6f0;" id="testimonial">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-badge">Khách hàng nói gì</span>
+      <h2 class="section-title">Đánh Giá Từ Khách Hàng</h2>
+      <p class="section-sub mx-auto">Sự hài lòng của khách hàng là động lực để chúng tôi không ngừng cải thiện chất lượng.</p>
+    </div>
+    <div class="mt-5 fade-up" id="testiWrap">
+      <div class="testi-card" id="testiCard"></div>
+      <div class="testi-dots" id="testiDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section-pad" id="contact">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-badge">Liên hệ đặt món</span>
+      <h2 class="section-title">Liên Hệ Với Chúng Tôi</h2>
+      <p class="section-sub mx-auto">Đặt món nhanh chóng qua form bên dưới hoặc gọi trực tiếp hotline để được phục vụ ngay.</p>
+    </div>
+    <div class="contact-section mt-5 fade-up">
+      <div class="row g-0">
+        <div class="col-lg-5">
+          <div class="contact-info-side">
+            <h3 class="fw-bold mb-4">Thông Tin Liên Hệ</h3>
+            <div class="contact-info-item">
+              <div class="ic"><i class="fa-solid fa-location-dot"></i></div>
+              <div><h6>Địa chỉ</h6><p>123 Đường Nguyễn Văn Linh, Q.7, TP. Hồ Chí Minh</p></div>
+            </div>
+            <div class="contact-info-item">
+              <div class="ic"><i class="fa-solid fa-phone"></i></div>
+              <div><h6>Hotline</h6><p>1900 6868 - 098 765 4321</p></div>
+            </div>
+            <div class="contact-info-item">
+              <div class="ic"><i class="fa-solid fa-envelope"></i></div>
+              <div><h6>Email</h6><p>lienhe@banhcanhbunca.vn</p></div>
+            </div>
+            <div class="contact-info-item">
+              <div class="ic"><i class="fa-solid fa-clock"></i></div>
+              <div><h6>Giờ mở cửa</h6><p>6:00 - 22:00 (Tất cả các ngày trong tuần)</p></div>
+            </div>
+            <div class="social-row">
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+              <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="contact-form-side">
+            <h3 class="fw-bold mb-2">Gửi Yêu Cầu Đặt Món</h3>
+            <p class="text-secondary mb-4">Điền thông tin bên dưới, chúng tôi sẽ liên hệ xác nhận trong ít phút.</p>
+            <form id="contactForm" onsubmit="submitContactForm(event)">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <input type="text" class="form-control form-control-custom" placeholder="Họ và tên *" required>
+                </div>
+                <div class="col-md-6">
+                  <input type="tel" class="form-control form-control-custom" placeholder="Số điện thoại *" required pattern="[0-9]{9,11}">
+                </div>
+                <div class="col-12">
+                  <input type="text" class="form-control form-control-custom" placeholder="Địa chỉ giao hàng *" required>
+                </div>
+                <div class="col-12">
+                  <textarea class="form-control form-control-custom" rows="4" placeholder="Nội dung / Món muốn đặt..."></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-brand w-100"><i class="fa-solid fa-paper-plane me-2"></i>Gửi Yêu Cầu</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-logo">
+          <div class="logo-icon"><i class="fa-solid fa-bowl-rice"></i></div>
+          <div class="brand-text">
+            <div class="t1" style="color:#fff;">Bánh Canh & Bún Cá Lóc</div>
+            <div class="t2">Hương vị đậm đà mỗi ngày</div>
+          </div>
+        </div>
+        <p class="desc">Thương hiệu bánh canh, bún cá lóc chuẩn vị miền Tây với hơn 10 năm gắn bó cùng thực khách. Tươi sạch - Đậm đà - Tận tâm.</p>
+        <div class="footer-social mt-3">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4 col-6">
+        <h5>Liên kết</h5>
+        <ul>
+          <li><a href="#home">Trang chủ</a></li>
+          <li><a href="#menu">Thực đơn</a></li>
+          <li><a href="#combo">Combo</a></li>
+          <li><a href="#about">Giới thiệu</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-4 col-6">
+        <h5>Hỗ trợ</h5>
+        <ul>
+          <li><a href="#contact">Liên hệ</a></li>
+          <li><a href="#testimonial">Đánh giá</a></li>
+          <li><a href="#">Chính sách giao hàng</a></li>
+          <li><a href="#">Điều khoản dịch vụ</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <h5>Đăng ký nhận tin</h5>
+        <p class="desc">Nhận thông tin ưu đãi và món mới sớm nhất!</p>
+        <form class="d-flex footer-newsletter" onsubmit="event.preventDefault(); alert('Đăng ký nhận tin thành công!');">
+          <input type="email" placeholder="Email của bạn" required class="flex-grow-1">
+          <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom text-center">
+      &copy; 2026 Bánh Canh & Bún Cá Lóc. All rights reserved. Thiết kế bởi đội ngũ tận tâm.
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="backToTop" aria-label="Lên đầu trang"><i class="fa-solid fa-arrow-up"></i></button>
+<!-- FLOAT ORDER BTN -->
+<button id="floatOrderBtn" onclick="document.querySelector('[data-bs-target=\'#cartOffcanvas\']').click()" aria-label="Xem giỏ hàng"><i class="fa-solid fa-cart-shopping"></i></button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ===================== DATA ===================== */
+const foodData = [
+  {id:1, name:"Bánh Canh Cá Lóc", price:45000, cat:"banhcanh", desc:"Bánh canh nước lèo cá lóc đậm đà, sợi bánh canh dẻo mềm.", img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500&q=80", badge:"Bán chạy"},
+  {id:2, name:"Bún Cá Lóc", price:45000, cat:"bun", desc:"Bún tươi kèm cá lóc đồng, nước lèo ngọt thanh chuẩn vị.", img:"https://images.unsplash.com/photo-1585032226651-759b368d7246?w=500&q=80", badge:"Bán chạy"},
+  {id:3, name:"Bánh Canh Chả Cá", price:40000, cat:"banhcanh", desc:"Chả cá dai ngon tự làm, ăn cùng bánh canh nóng hổi.", img:"https://images.unsplash.com/photo-1591814468924-caf88d1232e1?w=500&q=80", badge:""},
+  {id:4, name:"Bún Chả Cá", price:40000, cat:"bun", desc:"Bún chả cá thơm ngon, nước dùng đậm vị miền Trung.", img:"https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=500&q=80", badge:""},
+  {id:5, name:"Bánh Canh Đầy Đủ", price:55000, cat:"banhcanh", desc:"Đầy đủ cá lóc, chả cá, huyết - thỏa mãn bữa ăn ngon.", img:"https://images.unsplash.com/photo-1547928576-a4a37e0d9da1?w=500&q=80", badge:"Phổ biến"},
+  {id:6, name:"Bún Đầy Đủ", price:55000, cat:"bun", desc:"Bún đầy đủ topping cá, chả, thơm ngon trọn vị.", img:"https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=500&q=80", badge:"Phổ biến"},
+  {id:7, name:"Bánh Canh Hải Sản", price:65000, cat:"haisan", desc:"Tôm, mực, cá tươi sống kết hợp nước lèo ngọt thanh.", img:"https://images.unsplash.com/photo-1559847844-5315695dadae?w=500&q=80", badge:"Hot"},
+  {id:8, name:"Bún Hải Sản", price:65000, cat:"haisan", desc:"Bún hải sản đầy đặn tôm mực, đậm đà khó cưỡng.", img:"https://images.unsplash.com/photo-1626200419199-391ae4be7a41?w=500&q=80", badge:"Hot"},
+  {id:9, name:"Bánh Canh Thịt", price:40000, cat:"banhcanh", desc:"Bánh canh giò heo, thịt nạc thơm mềm, nước lèo trong.", img:"https://images.unsplash.com/photo-1555126634-323283e090fa?w=500&q=80", badge:""},
+  {id:10, name:"Bún Thịt", price:40000, cat:"bun", desc:"Bún thịt nạc kèm chả lụa, nước dùng thanh ngọt.", img:"https://images.unsplash.com/photo-1591299177165-13e9c5c4bce9?w=500&q=80", badge:""},
+  {id:11, name:"Bánh Canh Đặc Biệt", price:70000, cat:"dacbiet", desc:"Tổng hợp cá, tôm, chả, giò heo - đầy đủ nhất.", img:"https://images.unsplash.com/photo-1623341214825-9f4f963727da?w=500&q=80", badge:"Đặc biệt"},
+  {id:12, name:"Bún Đặc Biệt", price:70000, cat:"dacbiet", desc:"Phiên bản bún đặc biệt với đầy đủ topping cao cấp.", img:"https://images.unsplash.com/photo-1576577445504-6af96477db52?w=500&q=80", badge:"Đặc biệt"},
+];
+
+const drinkData = [
+  {id:101, name:"Pepsi", price:15000, img:"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=300&q=80"},
+  {id:102, name:"Coca Cola", price:15000, img:"https://images.unsplash.com/photo-1554866585-cd94860890b7?w=300&q=80"},
+  {id:103, name:"Nước Sâm", price:20000, img:"https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300&q=80"},
+  {id:104, name:"Nước Suối", price:10000, img:"https://images.unsplash.com/photo-1564419320461-6870880221ad?w=300&q=80"},
+  {id:105, name:"Nước Tăng Lực", price:20000, img:"https://images.unsplash.com/photo-1622543925917-763c34d1a86e?w=300&q=80"},
+];
+
+const testimonials = [
+  {name:"Nguyễn Văn An", role:"Khách hàng thân thiết", text:"Bánh canh cá lóc ở đây ngon đậm đà, nước lèo ngọt thanh tự nhiên, không bị gắt. Tôi ăn ở đây hơn 2 năm rồi vẫn chưa hết thích!", avatar:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80", rating:5},
+  {name:"Trần Thị Bích", role:"Nhân viên văn phòng", text:"Giao hàng siêu nhanh, đồ ăn vẫn còn nóng khi tới tay. Bún hải sản tươi ngon, topping đầy đặn xứng đáng với giá tiền.", avatar:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80", rating:5},
+  {name:"Lê Hoàng Nam", role:"Food Blogger", text:"Một trong những quán bánh canh cá lóc ngon nhất tôi từng thử ở Sài Gòn. Chả cá dai, thơm, không bị bở như nhiều nơi khác.", avatar:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&q=80", rating:5},
+  {name:"Phạm Thị Mai", role:"Mẹ bỉm sữa", text:"Đặt combo gia đình rất tiện, giá hợp lý mà no nê cả nhà 4 người. Các bé nhà mình cũng rất thích món bún thịt ở đây.", avatar:"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80", rating:5},
+  {name:"Đỗ Quang Huy", role:"Khách hàng mới", text:"Lần đầu thử bánh canh đặc biệt, không gian sạch sẽ, phục vụ nhiệt tình, món ăn đậm đà chuẩn vị miền Tây. Sẽ ủng hộ tiếp!", avatar:"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&q=80", rating:5},
+];
+
+/* ===================== STATE ===================== */
+let cart = [];
+let currentFilter = "all";
+let testiIndex = 0;
+
+/* ===================== LOADER ===================== */
+window.addEventListener("load", () => {
+  setTimeout(() => { document.getElementById("loader").classList.add("hide"); }, 600);
+});
+
+/* ===================== RENDER STARS ===================== */
+function renderStars(rating){
+  let html = "";
+  for(let i=1;i<=5;i++){
+    html += i <= rating ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>';
+  }
+  return html;
+}
+
+/* ===================== RENDER FOOD ===================== */
+function renderFood(){
+  const grid = document.getElementById("foodGrid");
+  const keyword = document.getElementById("searchInput").value.trim().toLowerCase();
+  let filtered = foodData.filter(f => {
+    const matchCat = currentFilter === "all" || f.cat === currentFilter;
+    const matchSearch = f.name.toLowerCase().includes(keyword);
+    return matchCat && matchSearch;
+  });
+
+  if(filtered.length === 0){
+    grid.innerHTML = `<div class="col-12 text-center py-5"><i class="fa-solid fa-bowl-food fs-1 text-muted mb-3 d-block"></i><p class="text-muted fs-5">Không tìm thấy món ăn phù hợp.</p></div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map((f,idx) => `
+    <div class="col-lg-3 col-md-6 col-12">
+      <div class="food-card fade-up show delay-${(idx%4)+1}">
+        <div class="img-wrap">
+          ${f.badge ? `<span class="food-badge ${f.badge==='Hot'?'hot':''}">${f.badge}</span>` : ""}
+          <button class="food-fav" onclick="toggleFav(this)"><i class="fa-solid fa-heart"></i></button>
+          <img src="${f.img}" alt="${f.name}" loading="lazy">
+        </div>
+        <div class="body">
+          <span class="cat-label">${catLabel(f.cat)}</span>
+          <h5>${f.name}</h5>
+          <p class="desc">${f.desc}</p>
+          <div class="stars">${renderStars(5)} <span>(5.0)</span></div>
+          <div class="price-row">
+            <span class="price">${formatPrice(f.price)}</span>
+            <button class="add-btn" onclick="addToCart(${f.id})" aria-label="Thêm vào giỏ"><i class="fa-solid fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join("");
+
+  observeFadeUps();
+}
+
+function catLabel(cat){
+  switch(cat){
+    case "banhcanh": return "Bánh Canh";
+    case "bun": return "Bún";
+    case "haisan": return "Hải Sản";
+    case "dacbiet": return "Đặc Biệt";
+    default: return "Món ăn";
+  }
+}
+
+function toggleFav(btn){
+  btn.classList.toggle("active");
+}
+
+/* ===================== RENDER DRINKS ===================== */
+function renderDrinks(){
+  const grid = document.getElementById("drinkGrid");
+  grid.innerHTML = drinkData.map((d,idx) => `
+    <div class="col-lg-2 col-md-4 col-6">
+      <div class="drink-card fade-up show delay-${(idx%4)+1}">
+        <div class="img-wrap"><img src="${d.img}" alt="${d.name}" loading="lazy"></div>
+        <h6>${d.name}</h6>
+        <div class="price">${formatPrice(d.price)}</div>
+        <button class="btn-outline-brand btn-sm w-100" onclick="addToCart(${d.id})"><i class="fa-solid fa-cart-plus me-1"></i>Thêm</button>
+      </div>
+    </div>
+  `).join("");
+  observeFadeUps();
+}
+
+/* ===================== FILTER TABS ===================== */
+document.querySelectorAll(".filter-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".filter-tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    currentFilter = tab.dataset.filter;
+    renderFood();
+  });
+});
+document.getElementById("searchInput").addEventListener("input", renderFood);
+
+/* ===================== FORMAT PRICE ===================== */
+function formatPrice(num){
+  return num.toLocaleString("vi-VN") + "đ";
+}
+
+/* ===================== CART LOGIC ===================== */
+function findItem(id){
+  return [...foodData, ...drinkData].find(x => x.id === id);
+}
+
+function addToCart(id){
+  const item = findItem(id);
+  if(!item) return;
+  const existing = cart.find(c => c.id === id);
+  if(existing){
+    existing.qty++;
+  } else {
+    cart.push({id:item.id, name:item.name, price:item.price, img:item.img || "", qty:1});
+  }
+  updateCart();
+  showToast(`Đã thêm "${item.name}" vào giỏ!`);
+}
+
+function addCombo(name, price){
+  const existing = cart.find(c => c.name === name);
+  if(existing){
+    existing.qty++;
+  } else {
+    cart.push({id:"combo-"+Date.now(), name:name, price:price, img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300&q=80", qty:1});
+  }
+  updateCart();
+  showToast(`Đã thêm "${name}" vào giỏ!`);
+}
+
+function changeQty(id, delta){
+  const item = cart.find(c => c.id === id);
+  if(!item) return;
+  item.qty += delta;
+  if(item.qty <= 0){
+    cart = cart.filter(c => c.id !== id);
+  }
+  updateCart();
+}
+
+function removeItem(id){
+  cart = cart.filter(c => c.id !== id);
+  updateCart();
+}
+
+function clearCart(){
+  cart = [];
+  updateCart();
+}
+
+function updateCart(){
+  const totalQty = cart.reduce((sum,c) => sum + c.qty, 0);
+  document.getElementById("cartCount").textContent = totalQty;
+
+  const wrap = document.getElementById("cartItemsWrap");
+  const footer = document.getElementById("cartFooter");
+
+  if(cart.length === 0){
+    wrap.innerHTML = `<div class="cart-empty"><i class="fa-solid fa-basket-shopping"></i><p>Giỏ hàng của bạn đang trống</p></div>`;
+    footer.style.display = "none";
+    return;
+  }
+
+  wrap.innerHTML = cart.map(c => `
+    <div class="cart-item">
+      <img src="${c.img}" alt="${c.name}">
+      <div class="info">
+        <h6>${c.name}</h6>
+        <div class="unit-price">${formatPrice(c.price)} / món</div>
+        <div class="qty-control">
+          <button onclick="changeQty('${c.id}',-1)"><i class="fa-solid fa-minus"></i></button>
+          <span>${c.qty}</span>
+          <button onclick="changeQty('${c.id}',1)"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+      <div class="text-end">
+        <div class="line-total">${formatPrice(c.price * c.qty)}</div>
+        <button class="remove-btn mt-2" onclick="removeItem('${c.id}')"><i class="fa-solid fa-trash"></i></button>
+      </div>
+    </div>
+  `).join("");
+
+  const total = cart.reduce((sum,c) => sum + c.price * c.qty, 0);
+  document.getElementById("cartSubtotal").textContent = formatPrice(total);
+  document.getElementById("cartTotal").textContent = formatPrice(total);
+  footer.style.display = "block";
+}
+
+function checkout(){
+  if(cart.length === 0) return;
+  alert("Cảm ơn bạn đã đặt món! Chúng tôi sẽ liên hệ xác nhận đơn hàng trong ít phút.");
+  clearCart();
+  bootstrap.Offcanvas.getInstance(document.getElementById("cartOffcanvas"))?.hide();
+}
+
+/* changeQty needs to support both number ids (food/drink) and string ids (combo) */
+function changeQty(id, delta){
+  let item = cart.find(c => c.id == id);
+  if(!item) return;
+  item.qty += delta;
+  if(item.qty <= 0){
+    cart = cart.filter(c => c.id != id);
+  }
+  updateCart();
+}
+function removeItem(id){
+  cart = cart.filter(c => c.id != id);
+  updateCart();
+}
+
+/* ===================== TOAST ===================== */
+let toastTimer;
+function showToast(msg){
+  const toast = document.getElementById("cartToast");
+  document.getElementById("toastMsg").textContent = msg;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 2500);
+}
+
+/* ===================== CONTACT FORM ===================== */
+function submitContactForm(e){
+  e.preventDefault();
+  alert("Yêu cầu đặt món của bạn đã được gửi! Chúng tôi sẽ liên hệ trong ít phút.");
+  e.target.reset();
+}
+
+/* ===================== HEADER SCROLL + BACK TO TOP ===================== */
+window.addEventListener("scroll", () => {
+  const header = document.getElementById("mainHeader");
+  const backTop = document.getElementById("backToTop");
+  if(window.scrollY > 60){
+    header.classList.add("scrolled");
+    backTop.classList.add("show");
+  } else {
+    header.classList.remove("scrolled");
+    backTop.classList.remove("show");
+  }
+  // Parallax
+  const parallax = document.getElementById("parallaxBg");
+  if(parallax){
+    parallax.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+  }
+  // Active nav link based on section
+  setActiveNav();
+});
+
+document.getElementById("backToTop").addEventListener("click", () => {
+  window.scrollTo({top:0, behavior:"smooth"});
+});
+
+function setActiveNav(){
+  const sections = document.querySelectorAll("section[id]");
+  let current = "home";
+  sections.forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 120 && rect.bottom >= 120){
+      current = sec.id;
+    }
+  });
+  document.querySelectorAll("#mainHeader .nav-link").forEach(link => {
+    link.classList.toggle("active", link.getAttribute("href") === "#"+current);
+  });
+}
+
+/* Close mobile nav on link click */
+document.querySelectorAll('#navMenu .nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    const navMenu = document.getElementById('navMenu');
+    if(navMenu.classList.contains('show')){
+      bootstrap.Collapse.getInstance(navMenu)?.hide();
+    }
+  });
+});
+
+/* ===================== FADE UP OBSERVER ===================== */
+function observeFadeUps(){
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+      }
+    });
+  }, {threshold:0.1});
+  document.querySelectorAll(".fade-up:not(.show)").forEach(el => observer.observe(el));
+}
+
+/* ===================== COUNTER ANIMATION ===================== */
+function animateCounters(){
+  const counters = document.querySelectorAll(".counter");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const el = entry.target;
+        const isDecimal = el.dataset.decimal === "true";
+        const target = parseFloat(el.dataset.target);
+        let current = 0;
+        const step = target / 60;
+        const interval = setInterval(() => {
+          current += step;
+          if(current >= target){
+            current = target;
+            clearInterval(interval);
+          }
+          el.textContent = isDecimal ? current.toFixed(1) : Math.floor(current).toLocaleString("vi-VN");
+        }, 25);
+        observer.unobserve(el);
+      }
+    });
+  }, {threshold:0.4});
+  counters.forEach(c => observer.observe(c));
+}
+
+/* ===================== TESTIMONIAL CAROUSEL ===================== */
+function renderTestimonial(){
+  const t = testimonials[testiIndex];
+  const card = document.getElementById("testiCard");
+  card.innerHTML = `
+    <i class="fa-solid fa-quote-left quote-ic"></i>
+    <p class="text">"${t.text}"</p>
+    <div class="stars">${renderStars(t.rating)}</div>
+    <div class="testi-avatar"><img src="${t.avatar}" alt="${t.name}"></div>
+    <h6>${t.name}</h6>
+    <small>${t.role}</small>
+  `;
+  const dots = document.getElementById("testiDots");
+  dots.innerHTML = testimonials.map((_,i) => `<div class="dot ${i===testiIndex?'active':''}" onclick="goTesti(${i})"></div>`).join("");
+}
+function goTesti(i){
+  testiIndex = i;
+  renderTestimonial();
+}
+function nextTesti(){
+  testiIndex = (testiIndex + 1) % testimonials.length;
+  renderTestimonial();
+}
+setInterval(nextTesti, 5500);
+
+/* ===================== INIT ===================== */
+document.addEventListener("DOMContentLoaded", () => {
+  renderFood();
+  renderDrinks();
+  renderTestimonial();
+  updateCart();
+  observeFadeUps();
+  animateCounters();
+  setActiveNav();
+});
+</script>
+</body>
+</html>
